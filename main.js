@@ -20,6 +20,20 @@ for (let contador = 0; contador < listadeTeclas.length; contador++){
 
 
     tecla.onclick = function(){
+        
         tocaSom('#som_'+instrumento);
     }
+
+    tecla.onkeydown = function(evento){
+        console.log(evento);
+        if(evento.code === "Enter" || evento.code === "Space" || evento.code === "NumpadEnter"){
+            tecla.classList.add("ativa");
+            console.log(evento.code);
+        }
+    }
+
+    tecla.onkeyup = function(){
+        tecla.classList.remove("ativa");
+    }
+
 }
